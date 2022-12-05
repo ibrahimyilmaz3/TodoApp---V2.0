@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<ripple android:color="@color/white" xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <shape android:shape="rectangle">
             <gradient android:angle="45" android:endColor="#2196F3" android:startColor="#BF2196F3" android:type="linear" />
             <corners android:radius="@dimen/_80sdp"/>
+            <stroke android:color="@color/white"
+                android:width="@dimen/_3sdp"/>
         </shape>
     </item>
-</selector>
+</ripple>

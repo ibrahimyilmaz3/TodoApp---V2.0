@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Deprecated, using "background_button_get_started.xml" only!-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:state_pressed="true" android:drawable="@drawable/background_button_get_started_pressed"/>
+<item android:state_pressed="false" android:drawable="@drawable/background_button_get_started"/>
+</selector>

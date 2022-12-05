@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Deprecated, using "background_button_get_started.xml" only!-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+<ripple android:color="@color/white">
+    <item>
+        <shape android:shape="rectangle">
+            <gradient android:angle="45" android:endColor="#0378D5" android:startColor="#BF0378D5" android:type="linear" />
+            <corners android:radius="@dimen/_80sdp"/>
+            <stroke android:color="@color/white"
+                android:width="@dimen/_3sdp"/>
+        </shape>
+    </item>
+</ripple>
+</selector>
