@@ -16,10 +16,10 @@ class ViewPagerAdapter(val context: Context) : PagerAdapter() {
     var layoutInflater: LayoutInflater? = null
 
     val imgArrayList = arrayListOf(
-        R.drawable.ic_baseline_assignment_turned_in_24,
-        R.drawable.ic_baseline_category_24,
+        R.drawable.document,
+        R.drawable.flowchart,
         R.drawable.ic_baseline_view_list_24,
-        R.drawable.ic_baseline_view_list_24
+        R.drawable.assessment
     )
 
     val headArrayList = arrayListOf(
@@ -30,10 +30,10 @@ class ViewPagerAdapter(val context: Context) : PagerAdapter() {
     )
 
     val descriptionArrayList = arrayListOf(
-        "App Description sadhsajhkjalshfjkashfkjlashfkjlahfkljsahfashfaskhfaksjl",
-        "Category Description ajdlhaskjhaskfhaskjlskfhjhfgfgahgfjhagfhjagdasjkdhgask",
-        "Assignment Description asjajhbfsahbfhskdfjkadbfhdsbfjsadkbfhadksbfhbdsfjkbsdjkafbdsaj",
-        "App-inn Screenshot Description fhdskjfnhsdkjhkdjsghjksdhgjkhgjkdsghjkds"
+        "App Description sadhsajhkjal shfjkashfkjlashf kjlahfkljsahfashf askhfaksjl",
+        "Category Description ajdlhaskjh askfhaskjlsk fhjhfgfgah gfjhagfhjagdas jkdhgask",
+        "Assignment Description asjajhbfsah bfhskdfjkad bfhdsbfjsad kbfhadksbfhb dsfjkbsdjkafbdsaj",
+        "App-inn Screenshot Description fhds kjfnhsdk jhkdjsghjks dhgjkhgj kdsghjkds"
     )
 
 
@@ -57,6 +57,10 @@ class ViewPagerAdapter(val context: Context) : PagerAdapter() {
 
         img.setImageResource(imgArrayList[position])
         tvHead.text = headArrayList[position]
+        tvDescription.text = descriptionArrayList[position]
+
+        container.addView(view)
+
         return view
     }
 
