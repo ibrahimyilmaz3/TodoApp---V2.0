@@ -1,35 +1,40 @@
 package com.iyilmaz.todoapp.adapter
 
-import android.content.Context
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.getSystemService
-import androidx.viewpager.widget.PagerAdapter
-import com.iyilmaz.todoapp.R
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.Lifecycle
+import androidx.viewpager2.adapter.FragmentStateAdapter
 
-class ViewPagerAdapter(val context: Context) : PagerAdapter() {
+class ViewPagerAdapter(list: ArrayList<Fragment>, fm: FragmentManager, lifecycle: Lifecycle) :
+    FragmentStateAdapter(fm, lifecycle) {
 
-    var layoutInflater: LayoutInflater? = null
+    private val fragmentList = list
 
-    val imgArrayList = arrayListOf(
+    override fun getItemCount(): Int {
+        return fragmentList.size
+    }
+
+    override fun createFragment(position: Int): Fragment {
+        return fragmentList[position]
+    }
+
+    /*private var layoutInflater: LayoutInflater? = null
+
+    private val imgArrayList = arrayListOf(
         R.drawable.document,
         R.drawable.flowchart,
         R.drawable.ic_baseline_view_list_24,
         R.drawable.assessment
     )
 
-    val headArrayList = arrayListOf(
+    private val headArrayList = arrayListOf(
         "Always keep up!",
         "Organize your chores!",
         "Never forget again!",
         "Let your phone do the thinking!"
     )
 
-    val descriptionArrayList = arrayListOf(
+    private val descriptionArrayList = arrayListOf(
         "App Description sadhsajhkjal shfjkashfkjlashf kjlahfkljsahfashf askhfaksjl",
         "Category Description ajdlhaskjh askfhaskjlsk fhjhfgfgah gfjhagfhjagdas jkdhgask",
         "Assignment Description asjajhbfsah bfhskdfjkad bfhdsbfjsad kbfhadksbfhb dsfjkbsdjkafbdsaj",
@@ -66,5 +71,5 @@ class ViewPagerAdapter(val context: Context) : PagerAdapter() {
 
     override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
         container.removeView(`object` as ConstraintLayout)
-    }
+    }*/
 }
