@@ -1,17 +1,15 @@
 package com.iyilmaz.todoapp
 
-import android.app.Activity
-import android.os.Build
 import android.os.Bundle
 import android.view.View
-import android.view.WindowInsets
-import android.view.WindowInsetsController
-import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import com.iyilmaz.todoapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -28,32 +26,45 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         navController = navHostFragment.navController
 
+        binding.bottomNavigationView.setupWithNavController(navController)
+
         navController.addOnDestinationChangedListener { _, nd: NavDestination, _ ->
             when (nd.id) {
                 R.id.splashFragment -> {
                     binding.coordinator.visibility = View.GONE
-                    //onWindowFocusChanged(hideSystemUI())
-//                    Hide the status bar.
+                    hideSystemUI()
                 }
                 R.id.viewPagerFragment -> {
                     binding.coordinator.visibility = View.GONE
-//                     REVERSE - hideSystemUI()
+                    hideSystemUI()
                 }
                 R.id.categoryFragment -> {
                     binding.coordinator.visibility = View.VISIBLE
-//                     REVERSE - hideSystemUI()
+                    hideSystemUI()
                 }
                 R.id.tasksFragment -> {
                     binding.coordinator.visibility = View.VISIBLE
-//                     REVERSE - hideSystemUI()
+                    hideSystemUI()
                 }
             }
         }
 
 
 
+
+
+
         setContentView(view)
     }
+
+    private fun hideSystemUI() {
+        WindowCompat.setDecorFitsSystemWindows(window, true)
+        val windowInsetsCompat = WindowInsetsControllerCompat(window, window.decorView)
+        windowInsetsCompat.hide(WindowInsetsCompat.Type.statusBars())
+        windowInsetsCompat.systemBarsBehavior =
+            WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+    }
+
 
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
@@ -61,7 +72,7 @@ class MainActivity : AppCompatActivity() {
 }
 
 
-/**
+/*/**
  * Hides the system bars and makes the Activity "fullscreen". If this should be the default
  * state it should be called from [Activity.onWindowFocusChanged] if hasFocus is true.
  * It is also recommended to take care of cutout areas. The default behavior is that the app shows
@@ -108,4 +119,4 @@ fun Activity.hideSystemUI() {
         @Suppress("DEPRECATION")
         window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION)
     }
-}
+}*/

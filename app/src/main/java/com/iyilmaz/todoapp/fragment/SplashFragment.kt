@@ -11,7 +11,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.iyilmaz.todoapp.R
 import com.iyilmaz.todoapp.databinding.FragmentSplashBinding
-import com.iyilmaz.todoapp.hideSystemUI
 
 
 class SplashFragment : Fragment() {
